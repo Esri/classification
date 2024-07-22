@@ -1,0 +1,75 @@
+{
+  "name": "academic-institution-classification-schema",
+  "version": "2.0",
+  "grammarVersion": "2.0",
+  "attributeCategories": [],
+  "classificationMetadata": {
+    "primaryAttribute": "classification",
+    "defaultValue": "Public Data",
+    "classificationValueProperties": [
+      {
+        "value": "Public Data",
+        "acronym": "Public Data",
+        "backgroundColor": "Green",
+        "textColor": "Black"
+      },
+      {
+        "value": "Restricted",
+        "acronym": "Restricted",
+        "backgroundColor": "Yellow",
+        "textColor": "Black"
+      },
+      {
+        "value": "Confidential",
+        "acronym": "Confidential",
+        "backgroundColor": "Red",
+        "textColor": "Black"
+      }
+    ]
+  },
+  "bannerExpression": "",
+  "selectionTextExpression": "",
+  "attributes": {
+    "classification": {
+      "label": "Classification",
+      "description": "Classification",
+      "type": "string",
+      "uiElement": "single-select",
+      "validValues": [{"label": "Public Data", "value": "Public Data"}, {"label": "Restricted", "value": "Restricted"}, {"label": "Confidential", "value": "Confidential"}],
+      "selectionDisplayOrder": 1,
+      "bannerOrder": 1,
+      "labelDelimiter": "",
+      "valueDelimiter": "-",
+      "attributeDelimiter": ";"
+    },
+    "program": {
+      "label": "Program",
+      "description": "Program",
+      "type": "string",
+      "uiElement": "single-select",
+      "valueExpression": "function getProgramValidValues(schemaJsonString, valueJsonString, attributeId) {\n    var valueJson = Dictionary(valueJsonString)\n    var schemaJson = Dictionary(schemaJsonString)\n    if (!HasKey(valueJson, \"classification\"))\n        return null;\n    if (valueJson.classification == \"Public Data\")\n        return schemaJson.attributes[attributeId].arcadeResultLookup[\"Public_Data_List\"];\n    if (valueJson.classification == \"Restricted\")\n        return schemaJson.attributes[attributeId].arcadeResultLookup[\"Restricted_List\"];\n    if (valueJson.classification == \"Confidential\")\n        return schemaJson.attributes[attributeId].arcadeResultLookup[\"Confidential_List\"];\n    return null;\n}\ngetProgramValidValues(schemaJsonString, valueJsonString, attributeId)",
+      "arcadeResultLookup": {
+        "Public_Data_List": [{"label": "Intra-agency", "value": "Intra-agency"}, {"label": "Marketing", "value": "Marketing"}, {"label": "Promotional", "value": "Promotional"}],
+        "Restricted_List": [{"label": "Compliance", "value": "Compliance"}, {"label": "Financial", "value": "Financial"}, {"label": "Human Resources", "value": "Human Resources"}, {"label": "Market Data", "value": "Market Data"}, {"label": "PII", "value": "PII"}, {"label": "Proprietary", "value": "Proprietary"}],
+        "Confidential_List": [{"label": "Intellectual Property", "value": "Intellectual Property"}, {"label": "Legal", "value": "Legal"}, {"label": "Security", "value": "Security"}]
+      },
+      "selectionDisplayOrder": 2,
+      "bannerOrder": 2,
+      "labelDelimiter": "",
+      "valueDelimiter": "-",
+      "attributeDelimiter": ";"
+    }
+  },
+  "layouts": {
+    "default": {
+      "layoutElements": {
+        "classification": {
+          "formDisplayOrder": 1
+        },
+        "program": {
+          "formDisplayOrder": 2
+        }
+      }
+    }
+  }
+}

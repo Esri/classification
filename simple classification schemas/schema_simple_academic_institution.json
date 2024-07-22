@@ -1,0 +1,61 @@
+{
+  "name": "academic-institution-classification-schema",
+  "version": "2.0",
+  "grammarVersion": "2.0",
+  "attributeCategories": [],
+  "classificationMetadata": {
+    "primaryAttribute": "classification",
+    "defaultValue": "Public",
+    "classificationValueProperties": [
+      {
+        "value": "Public",
+        "acronym": "Public",
+        "backgroundColor": "Green",
+        "textColor": "Black"
+      },
+      {
+        "value": "Internal",
+        "acronym": "Internal",
+        "backgroundColor": "Yellow",
+        "textColor": "Black"
+      },
+      {
+        "value": "Sensitive",
+        "acronym": "Sensitive",
+        "backgroundColor": "Orange",
+        "textColor": "Black"
+      },
+      {
+        "value": "Restricted",
+        "acronym": "Restricted",
+        "backgroundColor": "Red",
+        "textColor": "Black"
+      }
+    ]
+  },
+  "bannerExpression": "",
+  "selectionTextExpression": "",
+  "attributes": {
+    "classification": {
+      "label": "Classification",
+      "description": "Classification",
+      "type": "string",
+      "uiElement": "single-select",
+      "validValues": [{"label": "Public", "value": "Public"}, {"label": "Internal", "value": "Internal"}, {"label": "Sensitive", "value": "Sensitive"}, {"label": "Restricted", "value": "Restricted"}],
+      "selectionDisplayOrder": 1,
+      "bannerOrder": 1,
+      "labelDelimiter": "",
+      "valueDelimiter": "-",
+      "attributeDelimiter": ";"
+    }
+  },
+  "layouts": {
+    "default": {
+      "layoutElements": {
+        "classification": {
+          "formDisplayOrder": 1
+        }
+      }
+    }
+  }
+}
