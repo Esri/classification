@@ -1,0 +1,67 @@
+{
+  "name": "academic-institution-classification-schema",
+  "version": "2.0",
+  "grammarVersion": "2.0",
+  "attributeCategories": [],
+  "classificationMetadata": {
+    "primaryAttribute": "classification",
+    "defaultValue": "Public",
+    "classificationValueProperties": [
+      {
+        "value": "Public",
+        "acronym": "Public",
+        "backgroundColor": "Green",
+        "textColor": "Black"
+      },
+      {
+        "value": "Proprietary",
+        "acronym": "Proprietary",
+        "backgroundColor": "Cyan",
+        "textColor": "Black"
+      },
+      {
+        "value": "Private",
+        "acronym": "Private",
+        "backgroundColor": "Yellow",
+        "textColor": "Black"
+      },
+      {
+        "value": "Confidential",
+        "acronym": "Confidential",
+        "backgroundColor": "Orange",
+        "textColor": "Black"
+      },
+      {
+        "value": "Sensitive",
+        "acronym": "Sensitive",
+        "backgroundColor": "Red",
+        "textColor": "Black"
+      }
+    ]
+  },
+  "bannerExpression": "",
+  "selectionTextExpression": "",
+  "attributes": {
+    "classification": {
+      "label": "Classification",
+      "description": "Classification",
+      "type": "string",
+      "uiElement": "single-select",
+      "validValues": [{"label": "Public", "value": "Public"}, {"label": "Proprietary", "value": "Proprietary"}, {"label": "Private", "value": "Private"}, {"label": "Confidential", "value": "Confidential"}, {"label": "Sensitive", "value": "Sensitive"}],
+      "selectionDisplayOrder": 1,
+      "bannerOrder": 1,
+      "labelDelimiter": "",
+      "valueDelimiter": "-",
+      "attributeDelimiter": ";"
+    }
+  },
+  "layouts": {
+    "default": {
+      "layoutElements": {
+        "classification": {
+          "formDisplayOrder": 1
+        }
+      }
+    }
+  }
+}
