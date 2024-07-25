@@ -1,0 +1,112 @@
+{
+  "name": "academic-institution-classification-schema",
+  "version": "2.0",
+  "grammarVersion": "2.0",
+  "attributeCategories": [],
+  "classificationMetadata": {
+    "primaryAttribute": "classification",
+    "defaultValue": "Unclassified",
+    "classificationValueProperties": [
+      {
+        "value": "Unclassified",
+        "acronym": "Unclassified",
+        "backgroundColor": "Grey",
+        "textColor": "Black"
+      },
+      {
+        "value": "In-confidence",
+        "acronym": "In-confidence",
+        "backgroundColor": "Black",
+        "textColor": "White"
+      },
+      {
+        "value": "Sensitive",
+        "acronym": "Sensitive",
+        "backgroundColor": "Black",
+        "textColor": "White"
+      },
+      {
+        "value": "Restricted",
+        "acronym": "Restricted",
+        "backgroundColor": "Black",
+        "textColor": "White"
+      },
+      {
+        "value": "Confidential",
+        "acronym": "Confidential",
+        "backgroundColor": "Green",
+        "textColor": "White"
+      },
+      {
+        "value": "Secret",
+        "acronym": "Secret",
+        "backgroundColor": "Blue",
+        "textColor": "White"
+      },
+      {
+        "value": "Top Secret",
+        "acronym": "Top Secret",
+        "backgroundColor": "Red",
+        "textColor": "White"
+      }
+    ]
+  },
+  "bannerExpression": "function bannerExpression(schemaJsonString, valueJsonString, attributeId) {\n    var valueJson = Dictionary(valueJsonString)\n    var schemaJson = Dictionary(schemaJsonString)\n    var selectionText = \"\"\n    if (HasKey(valueJson, \"classification\")) {\n        selectionText = selectionText + valueJson[\"classification\"]\n        if (HasKey(valueJson, \"distribution\")) {\n            selectionText = selectionText + \"//\" + valueJson[\"distribution\"]\n        }\n        if (HasKey(valueJson, \"reviewDate\") && valueJson[\"classification\"] != \"Unclassified\") {\n            selectionText = selectionText + \"/\" + \"To be reviewed on\" + \" \" + valueJson[\"reviewDate\"]\n        }\n    }\n    return selectionText;\n}\nbannerExpression(schemaJsonString, valueJsonString, attributeId)",
+  "selectionTextExpression": "function selectionTextExpression(schemaJsonString, valueJsonString, attributeId) {\n    var valueJson = Dictionary(valueJsonString)\n    var schemaJson = Dictionary(schemaJsonString)\n    var selectionText = \"\"\n    if (HasKey(valueJson, \"classification\")) {\n        selectionText = selectionText + valueJson[\"classification\"]\n        if (HasKey(valueJson, \"distribution\")) {\n            selectionText = selectionText + \"//\" + valueJson[\"distribution\"]\n        }\n        if (HasKey(valueJson, \"reviewDate\") && valueJson[\"classification\"] != \"Unclassified\") {\n            selectionText = selectionText + \"/\" + \"To be reviewed on\" + \" \" + valueJson[\"reviewDate\"]\n        }\n    }\n    return selectionText;\n}\nselectionTextExpression(schemaJsonString, valueJsonString, attributeId)",
+  "attributes": {
+    "classification": {
+      "label": "Classification",
+      "description": "Classification",
+      "type": "string",
+      "uiElement": "single-select",
+      "validValues": [{"label": "Unclassified", "value": "Unclassified"}, {"label": "In-confidence", "value": "In-confidence"}, {"label": "Sensitive", "value": "Sensitive"}, {"label": "Restricted", "value": "Restricted"}, {"label": "Confidential", "value": "Confidential"}, {"label": "Secret", "value": "Secret"}, {"label": "Top Secret", "value": "Top Secret"}],
+      "selectionDisplayOrder": 1,
+      "bannerOrder": 1,
+      "labelDelimiter": "",
+      "valueDelimiter": "-",
+      "attributeDelimiter": ";"
+    },
+    "distribution": {
+      "label": "Distribution",
+      "description": "Distribution",
+      "type": "string",
+      "uiElement": "single-select",
+      "isRequired": true,
+      "validValues": [{"label": "Budget", "value": "Budget"}, {"label": "Cabinet", "value": "Cabinet"}, {"label": "Commercial", "value": "Commercial"}, {"label": "Legal Privilege", "value": "Legal Privilege"}, {"label": "Medical", "value": "Medical"}, {"label": "Staff", "value": "Staff"}, {"label": "Policy", "value": "Policy"}],
+      "selectionDisplayOrder": 2,
+      "bannerOrder": 2,
+      "labelDelimiter": "",
+      "valueDelimiter": "-",
+      "attributeDelimiter": "//"
+    },
+    "reviewDate": {
+      "label": "Review Date",
+      "description": "Review Date",
+      "type": "date",
+      "uiElement": "date",
+      "defaultDateTimeline": 10,
+      "defaultDateTimelineUnits": "years",
+      "selectionDisplayOrder":3,
+      "bannerOrder": 3,
+      "selectionDisplayLabel": "To be reviewed on",
+      "labelDelimiter": " ",
+      "valueDelimiter": " ",
+      "attributeDelimiter": "/"
+    }
+  },
+  "layouts": {
+    "default": {
+      "layoutElements": {
+        "classification": {
+          "formDisplayOrder": 1
+        },
+        "distribution": {
+          "formDisplayOrder": 2
+        },
+        "reviewDate": {
+          "formDisplayOrder": 3
+        }
+      }
+    }
+  }
+}
