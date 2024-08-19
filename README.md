@@ -2,7 +2,7 @@
 
 As of ArcGIS Enterprise 11.4 (beta), default administrators can assign their organization a classification schema that allows their members to classify items based on their level of sensitivity. Item classification helps organization members understand the extent of security and safeguarding an item warrants and thus can play a crucial role in protecting confidential and proprietary information. The following are scenarios of when item classification can be used:
 
-* Government agencies can classify items that are considered sensitive information and must be protected. Access to these items is restricted by law or regulations to individuals with required security clearance, and mishandling them can incur criminal penalties.
+* Government agencies can classify items that are considered sensitive and require protection. Access to these items is restricted by law or regulations to individuals with required security clearance, and mishandling them can incur criminal penalties.
 
 * Corporations and non-government organizations can classify items to protect trade secrets or conform with laws and regulations governing various situations such as personal privacy, legal proceedings, and the timing of financial information releases.
 
