@@ -1,6 +1,6 @@
 # Classification
 
-As of ArcGIS Enterprise 11.4 (beta), default administrators can assign their organization a classification schema that allows their members to classify items based on their level of sensitivity. Item classification helps organization members understand the extent of security and safeguarding an item warrants and thus can play a crucial role in protecting confidential and proprietary information. The following are examples of when item classification would be useful:
+As of ArcGIS Enterprise 11.4, you can [assign your organization a classification schema](https://enterprise.arcgis.com/en/portal/latest/administer/windows/configure-classification-schema.htm) that allows your members to classify items based on their level of sensitivity. Item classification helps organization members understand the extent of security and safeguarding an item warrants and thus can play a crucial role in protecting confidential and proprietary information. The following are examples of when item classification would be useful:
 
 * Government agencies can classify sensitive items that, by law or regulation, can only be accessed by individuals with proper security clearance and incur criminal penalties if mishandled.
 
@@ -10,20 +10,20 @@ Before you can assign a classification schema to your organization, you must cre
 
 ## Instructions
 
-To download a classification schema sample, follow these steps:
+To create a classification schema using a schema sample as a reference, follow these steps:
 
 1. Navigate to [simple classification schemas](https://github.com/ArcGIS/classification/tree/main/simple%20classification%20schemas) or [intermediate classification schemas](https://github.com/ArcGIS/classification/tree/main/intermediate%20classification%20schemas).
 2. Click on a schema sample to preview it.
 3. Click **Download raw file** in the top-right corner of the preview window.
 4. Open the file in a text editor of your choice.
-5. Using the sample as a reference, follow the instructions in [Create classification schemas](https://github.com/ArcGIS/classification/blob/main/Create%20classification%20schemas.md) to create your classification schema.
+5. Use the sample as a reference and review [Item classification reference](https://developers.arcgis.com/rest/users-groups-and-items/classification-reference/) to create your classification schema.
 
 ## Requirements
 
 The following is a list of requirements for assigning a classification schema to your organization:
 
-* ArcGIS Enterprise 11.4 (beta)
-* Access to an account with default administrative access to the ArcGIS Portal Directory (Sharing API)
+* ArcGIS Enterprise 11.4
+* Be a member of the default Administrator role or a custom role that includes the Organization website privilege
 
 ## Issues
 
